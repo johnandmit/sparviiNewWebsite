@@ -657,7 +657,8 @@ const ContactSection = () => {
 // --- Main Page Component ---
 
 export const SparviiLanding: React.FC = () => {
-  return <main className="min-h-screen bg-[#0d0d0d] text-[#c8c8c8] selection:bg-[#2ee8b5]/30 selection:text-white font-sans antialiased overflow-x-hidden">
+  return (
+    <main className="min-h-screen bg-[#0d0d0d] text-[#c8c8c8] selection:bg-[#2ee8b5]/30 selection:text-white font-sans antialiased overflow-x-hidden">
       <ScrollProgressBar />
       <Navbar />
 
@@ -1150,5 +1151,6 @@ export const SparviiLanding: React.FC = () => {
           </div>
         </div>
       </footer>
-    </main>;
+    </main>
+  );
 };
