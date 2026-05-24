@@ -185,10 +185,12 @@ const ScrollProgressBar = () => {
     damping: 30,
     mass: 0.2
   });
-  return <motion.div style={{
+  return (
+    <motion.div style={{
     scaleX,
     transformOrigin: '0% 50%'
-  }} className="fixed top-0 left-0 right-0 h-[2px] bg-[#2ee8b5] z-[60] shadow-[0_0_8px_rgba(46,232,181,0.6)]" />;
+  }} className="fixed top-0 left-0 right-0 h-[2px] bg-[#2ee8b5] z-[60] shadow-[0_0_8px_rgba(46,232,181,0.6)]" />
+  );
 };
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -198,7 +200,8 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  return <nav className={cn('fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-5 md:px-9', scrolled ? 'bg-[#0d0d0d]/75 backdrop-blur-md border-b border-[#2ee8b5]/10' : 'bg-transparent border-b border-transparent')}>
+  return (
+    <nav className={cn('fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-5 md:px-9', scrolled ? 'bg-[#0d0d0d]/75 backdrop-blur-md border-b border-[#2ee8b5]/10' : 'bg-transparent border-b border-transparent')}>
       <div className="max-w-7xl mx-auto flex items-center justify-between h-[54px]">
         <a href="#home" className="text-white font-bold text-base tracking-[0.02em] font-heading uppercase">
           SPARVII
@@ -234,7 +237,8 @@ const Navbar = () => {
             </button>
           </motion.div>}
       </AnimatePresence>
-    </nav>;
+    </nav>
+    );
 };
 const Marquee = () => <div className="relative overflow-hidden bg-[#0a0a0a] border-y border-white/5 py-2.5">
     <div className="flex whitespace-nowrap">
@@ -267,7 +271,8 @@ const PricingColumn = ({
   delay?: number;
 }) => {
   const isLeft = side === 'left';
-  return <div className="relative">
+  return (
+    <div className="relative">
       <div className="absolute" style={{
       left: '15px',
       top: '26px',
@@ -339,7 +344,8 @@ const PricingColumn = ({
             </div>
           </FadeInWhenVisible>)}
       </div>
-    </div>;
+    </div>
+    );
 };
 
 // --- Call Back Form (shared between Demo and Contact sections) ---
@@ -363,7 +369,8 @@ const CallBackForm = ({
       if (onSuccess) onSuccess();
     }, 2000);
   };
-  return <form onSubmit={handleSubmit} className="space-y-2.5 pt-1">
+  return (
+    <form onSubmit={handleSubmit} className="space-y-2.5 pt-1">
       <div className="space-y-1.5">
         <label htmlFor="cb-name" className={labelClass}>
           <span>Your name</span>
@@ -407,7 +414,8 @@ const CallBackForm = ({
           </motion.p>}
       </AnimatePresence>
       <p className="text-[10px] text-white/40 italic">The AI will call you within 30 seconds. This is a demo call only.</p>
-    </form>;
+    </form>
+    );
 };
 
 // --- Contact Call Back Form (real human call back) ---
@@ -439,7 +447,8 @@ const ContactCallBackForm = () => {
         <p className="text-[#c8c8c8] text-[13px]">We will call you back soon.</p>
       </motion.div>;
   }
-  return <form onSubmit={handleSubmit} className="space-y-2.5 pt-1">
+  return (
+    <form onSubmit={handleSubmit} className="space-y-2.5 pt-1">
       <div className="space-y-1.5">
         <label htmlFor="rcb-name" className={labelClass}>
           <span>Your name</span>
@@ -470,7 +479,8 @@ const ContactCallBackForm = () => {
         {state === 'idle' ? 'Request a Call Back' : 'Sending...'}
       </button>
       <p className="text-[10px] text-white/40 italic">No spam. A real person from Sparvii will call you back.</p>
-    </form>;
+    </form>
+    );
 };
 
 // --- Contact Section ---
@@ -489,7 +499,8 @@ const ContactSection = () => {
     setMsgState('sending');
     setTimeout(() => setMsgState('success'), 1800);
   };
-  return <section id="contact" className="py-16 md:py-24 px-5 md:px-9 bg-[#0a0a0a] border-t border-white/5">
+  return (
+    <section id="contact" className="py-16 md:py-24 px-5 md:px-9 bg-[#0a0a0a] border-t border-white/5">
       <div className="max-w-3xl mx-auto">
         <FadeInWhenVisible className="mb-8 text-center">
           <div className="mb-3">
@@ -651,7 +662,8 @@ const ContactSection = () => {
           </div>
         </FadeInWhenVisible>
       </div>
-    </section>;
+    </section>
+    );
 };
 
 // --- Main Page Component ---
@@ -1152,5 +1164,5 @@ export const SparviiLanding: React.FC = () => {
         </div>
       </footer>
     </main>
-  );
+    );
 };
